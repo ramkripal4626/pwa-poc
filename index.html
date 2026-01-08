@@ -33,6 +33,12 @@
       document.getElementById('status').innerText =
         'Service Workers not supported';
     }
+
+    if ('serviceWorker' in navigator && 'SyncManager' in window) {
+      console.log("Background Sync is supported");
+    } else {
+      console.log("Background Sync is NOT supported on this browser");
+    }
   </script>
 </body>
 </html>
