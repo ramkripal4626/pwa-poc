@@ -15,7 +15,7 @@
 <body>
   <h1>PWA - Service Worker & Manifest POC</h1>
   <p id="status">Checking Service Worker...</p>
-
+  <p id="sync">Checking Sync Manager...</p>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -35,9 +35,11 @@
     }
 
     if ('serviceWorker' in navigator && 'SyncManager' in window) {
-      console.log("Background Sync is supported");
+      document.getElementById('status').innerText =
+            'Background Sync Working';
     } else {
-      console.log("Background Sync is NOT supported on this browser");
+      document.getElementById('status').innerText =
+            'Background Sync Not Working';
     }
   </script>
 </body>
